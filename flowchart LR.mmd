@@ -1,0 +1,24 @@
+flowchart LR
+  C[Cliente HTTP] --> AGW[API Gateway HTTP API]
+  AGW --> L[Lambda en VPC privada]
+
+  subgraph VPC[VPC]
+    direction LR
+
+    subgraph PUB[Subnets públicas]
+      IGW[Internet Gateway]
+      NAT[NAT Gateway]
+    end
+
+    subgraph PRIV[Subnets privadas]
+      R[(ElastiCache Redis)]
+      S3EP[S3 Gateway Endpoint]
+    end
+  end
+
+  L --> R
+  L -. tráfico AWS .-> S3EP
+  S3EP --> S3[(S3 privado)]
+
+  NAT --> IGW
+  L -. salida internet .-> NAT

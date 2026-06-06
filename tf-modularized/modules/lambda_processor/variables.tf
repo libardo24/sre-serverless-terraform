@@ -1,0 +1,13 @@
+variable "project_name" { type = string }
+variable "lambda_runtime" { type = string }
+variable "lambda_timeout" { type = number }
+variable "lambda_memory_size" { type = number }
+variable "lambda_zip_path" { type = string }
+variable "subnet_ids" { type = list(string) }
+variable "security_group_ids" { type = list(string) }
+variable "s3_bucket_name" { type = string }
+variable "s3_bucket_arn" { type = string }
+variable "redis_host" { type = string }
+variable "redis_port" { type = number }
+variable "cache_ttl" { type = string }
+variable "tags" { type = map(string) }
