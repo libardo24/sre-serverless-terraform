@@ -69,7 +69,7 @@ flowchart LR
 Copia y ajusta:
 
 ```bash
-cd terraform
+cd tf-modularized
 cp terraform.tfvars.example terraform.tfvars
 ```
 
@@ -98,7 +98,7 @@ Esto genera el artefacto `lambda/lambda.zip`.
 ## Despliegue
 
 ```bash
-cd terraform
+cd tf-modularized
 terraform init
 terraform plan
 terraform apply -var-file=terraform.tfvars
